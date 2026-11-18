@@ -53,10 +53,12 @@ HTML / CSS / JavaScript だけで作っています（ビルド不要・外部�
 |---|---|---|---|
 | `template-create-form` | リポジトリ作成 | リポジトリの作成画面 | 登録済み（小説版と共通の画像） |
 | `github-app-install` | Claude Code連携 | Claude に許可するリポジトリを選ぶ画面 | 登録済み（小説版と共通の画像） |
+| `claude-code-repo-select` | Claude Code連携 | パソコン：リポジトリを選ぶ画面 | 登録済み（小説版と共通の画像） |
 | `app-repo-add` | Claude Code連携 | スマホのアプリ：「リポジトリを追加」 | 登録済み |
 | `app-repo-select` | Claude Code連携 | スマホのアプリ：リポジトリを選んだ画面 | 登録済み |
 | `chat-html-card` | 初期設定 | 普通のチャットの中のゲームのファイル | 登録済み |
 | `chat-html-download` | 初期設定 | ゲームのファイルのメニュー（ダウンロード） | 登録済み |
+| `template-use-button` | リポジトリ作成 | GameTemplate の「Use this template」ボタン | 未登録 |
 | `pages-settings` | リポジトリ作成 | GitHub Pages の設定画面 | 未登録 |
 | `github-signup` ほか | アカウント作成 | 小説版と同じ枠 | 未登録 |
 
