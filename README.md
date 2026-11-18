@@ -1,6 +1,6 @@
 # ClaudeとGitHubではじめるブラウザゲーム開発
 
-**🌐 公開サイト：https://zonarouzo.github.io/GameGitHubGuide/**（GitHub Pages の設定後）
+**🌐 公開サイト：https://zonarouzo.github.io/GameGitHubGuide/**
 
 GitHub とブラウザ版 Claude Code を使って、HTML のブラウザゲームを作り、スマホで遊んで確かめ、チームの代表者が Android アプリにするまでを、GitHub 未経験者向けに解説する HowTo サイトです。
 HTML / CSS / JavaScript だけで作っています（ビルド不要・外部サービス不要）。
