@@ -54,6 +54,8 @@ window.SITE_CONFIG = {
    * 実際の操作で確認できた画像だけを使ってください。
    */
   screenshots: {
+    "app-repo-add": "app-repo-add.png",
+    "app-repo-select": "app-repo-select.png",
     "template-create-form": "template-create-form.png",
     "github-app-install": "github-app-install.png",
     "chat-html-card": "chat-html-card.png",
