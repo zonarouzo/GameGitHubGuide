@@ -28,19 +28,29 @@
 <div class="todo">
   <p class="todo-title">このページでやること</p>
   <ol>
-    <li><a href="#answer">Claude の質問に答えて、サンプルゲームを自分のゲームに置き換える</a></li>
-    <li><a href="#play">できた最初の形を、スマホで遊んでみる</a></li>
+    <li>始め方を選んで、サンプルゲームを自分のゲームに置き換える
+      <ul>
+        <li><a href="#answer">A. 新しく作る</a></li>
+        <li><a href="#migrate">B. Claude のチャットで途中まで作ったゲームを移す</a></li>
+      </ul></li>
+    <li><a href="#play">スマホで遊んでみる</a></li>
   </ol>
-  <p class="todo-meta">目安：10〜20分　／　小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
+  <p class="todo-meta">目安：10〜30分　／　小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
 </div>
 
-<h2 id="answer">1. Claude の質問に答える</h2>
-<p>ステップ3で接続を確かめると、Claude が<strong>「初期設定」を提案して、作りたいゲームについて質問してきます</strong>。同じ会話のまま答えていきます。</p>
+<p>ステップ3で接続を確かめると、Claude が<strong>「初期設定」を提案して、始め方を聞いてきます</strong>。同じ会話のまま、どちらかを選んで進めます。</p>
+<div class="cards">
+  <a class="card" href="#answer" style="text-decoration:none;color:inherit"><span class="card-icon" aria-hidden="true">✨</span><h3>A. 新しく作る</h3><p>作りたいゲームを Claude に伝えて、最初の形を作ってもらいます。</p></a>
+  <a class="card" href="#migrate" style="text-decoration:none;color:inherit"><span class="card-icon" aria-hidden="true">📦</span><h3>B. チャットで作ったゲームを移す</h3><p>普通の Claude のチャットで途中まで作ったゲームを、ここに移して続きを作ります。</p></a>
+</div>
+
+<h2 id="answer">A. 新しく作る</h2>
 <ol class="steps">
+  <li><p class="step-main">始め方を聞かれたら「<strong>新しく作ります</strong>」と答えます。</p></li>
   <li><p class="step-main">作りたいゲーム（タイトル・ジャンル・画面の向き・操作・ルールなど）を、わかる範囲で答えます。</p>
     <div class="note"><p>決まっていないことは「おまかせ」「未定」で大丈夫です。あとからいくらでも変えられます。「〇〇みたいな雰囲気」のように、たとえで伝えるのもおすすめです。</p></div></li>
   <li><p class="step-main">サンプルゲームを置き換えてよいか聞かれたら、「<strong>置き換えてOKです</strong>」と答えます。</p></li>
-  <li><p class="step-main">Claude の報告の「保存の状況」に「<strong>main に反映しました</strong>」とあれば完了です。</p>
+  <li><p class="step-main">Claude の報告の「保存の状況」に「<strong>main に反映しました</strong>」とあれば完了です。<a href="#play">スマホで遊んでみましょう</a>。</p>
     <div class="note"><p>Claude は保存の前に、ゲームを自分で開いてエラーがないか確かめています。報告の「動作確認」に結果が書かれます。</p></div></li>
 </ol>
 
@@ -52,20 +62,51 @@
   </div>
 </details>
 
+<h2 id="migrate">B. Claude のチャットで途中まで作ったゲームを移す</h2>
+<p>普通の Claude のチャット（Claude Code ではないほう）で作ったゲームを、このリポジトリに移します。移したあとは、Claude Code で続きを作れます。</p>
+<ol class="steps">
+  <li><p class="step-main"><strong>普通の Claude のチャット</strong>で、ゲームを作った会話を開き、次の文章を送ります。</p>
+    <div data-prompt="chat-export"></div>
+    <div class="note"><p>ゲームを、移しやすい「1つのファイル」の形で書き出してもらうためのお願いです。</p></div></li>
+  <li><p class="step-main">表示されたコードを、<strong>最初から最後まで全部</strong>コピーします。</p>
+    <div class="note"><p>コードの枠にあるコピーのボタンを使うと確実です。コードが途中で切れている場合は、チャットで「続きを出してください」と頼み、全部そろえてからコピーします。</p></div></li>
+  <li><p class="step-main"><strong>Claude Code</strong> に戻り、次の文章の【 】にコードを貼り付けて送ります。</p>
+    <div data-prompt="import-game"></div>
+    <div class="note"><p>Claude Code が初期設定の始め方を聞いてきた場合は、「B」と答えてからこの文章を送っても大丈夫です。</p></div></li>
+  <li><p class="step-main">Claude が「アプリにしやすい形にするための直し」を説明してきたら、内容を見て「<strong>進めてOKです</strong>」と答えます。</p>
+    <div class="note"><p>ネット上の部品を読み込んでいる場合や、React などの特別な仕組みで作られている場合は、普通の形に書き直す必要があります。書き直しが大きいときは、作業の前に Claude が説明してくれます。</p></div></li>
+  <li><p class="step-main">報告に書かれた「<strong>元のゲームから変わった点</strong>」を確認し、遊んで確かめます。</p>
+    <div class="note"><p>元のコードの控えは <code>import/</code> フォルダに保存されます。うまく動かないところがあれば、「元のゲームでは〇〇だったのに、△△になっている」と伝えると直してもらえます。</p></div></li>
+</ol>
+
+<details class="more">
+  <summary>コードが長すぎて、貼り付けられないとき（ファイルをアップロード）</summary>
+  <div class="more-body">
+    <ol>
+      <li>コードを、拡張子が <code>.html</code> のファイルとしてパソコンに保存します（チャットのゲームの画面からダウンロードできる場合は、それを使います）。</li>
+      <li>GitHub でゲームのリポジトリを開き、<span class="ui">Add file</span> → <span class="ui">Upload files</span> を選んで、そのファイルを入れます。</li>
+      <li>画面下の <span class="ui">Commit changes</span> を押して保存します。</li>
+      <li>Claude Code で、次の文章の【 】にファイル名を書いて送ります。</li>
+    </ol>
+    <div data-prompt="import-game-upload"></div>
+    <p>ボタンの表記は変わることがあります。</p>
+  </div>
+</details>
+
 <details class="more">
   <summary>初期設定で Claude がすること<span class="more-tag">知っておくと安心</span></summary>
   <div class="more-body">
     <ul>
-      <li>あなたの答えをもとに、ゲーム企画書（<code>docs/design.md</code>）を書き直す</li>
-      <li>サンプルゲームを、あなたのゲームの<strong>最初の遊べる形</strong>（小さくてOK）に作り直す</li>
+      <li>ゲーム企画書（<code>docs/design.md</code>）を、あなたのゲームの内容で書き直す</li>
+      <li>サンプルゲームを、あなたのゲームに置き換える（A は最初の遊べる形を作る、B は移したゲームをアプリにしやすい形に整える）</li>
       <li>スマホ・パソコンの画面で、エラーがないか確かめる</li>
       <li>GitHub のメインの保存場所（main）に反映する</li>
     </ul>
-    <p>最初から完成形を目指さず、小さく作って遊びながら育てていくのがコツです。</p>
+    <p>最初から完成形を目指さず、遊びながら少しずつ育てていくのがコツです。</p>
   </div>
 </details>
 
-<h2 id="play">2. スマホで遊んでみる</h2>
+<h2 id="play">スマホで遊んでみる</h2>
 <ol class="steps">
   <li><p class="step-main">数分待ってから、公開アドレス（<code>https://ユーザー名.github.io/リポジトリ名/</code>）をスマホで開きます。</p>
     <div class="note"><p>Claude の報告の「遊んで確かめる」にもアドレスが書かれています。サンプルゲームのままだったら、少し待ってからページを再読み込みしてください。</p></div></li>
