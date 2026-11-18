@@ -54,6 +54,8 @@ window.SITE_CONFIG = {
    * 実際の操作で確認できた画像だけを使ってください。
    */
   screenshots: {
+    "pages-settings": "pages-settings.png",
+    "template-use-button": "template-use-button.png",
     "claude-code-repo-select": "claude-code-repo-select.png",
     "app-repo-add": "app-repo-add.png",
     "app-repo-select": "app-repo-select.png",
