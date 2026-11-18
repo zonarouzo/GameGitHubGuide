@@ -1,8 +1,8 @@
-# ClaudeとGitHubではじめるブラウザゲーム開発
+# ClaudeとGitHubではじめるブラウザゲーム開発（けんちくぶ！）
 
 **🌐 公開サイト：https://zonarouzo.github.io/GameGitHubGuide/**
 
-GitHub とブラウザ版 Claude Code を使って、HTML のブラウザゲームを作り、スマホで遊んで確かめ、チームの代表者が Android アプリにするまでを、GitHub 未経験者向けに解説する HowTo サイトです。
+GitHub とブラウザ版 Claude Code を使って、HTML のブラウザゲームを作り、スマホで遊んで確かめ、「けんちくぶ！」が Android アプリにするまでを、GitHub 未経験者向けに解説する HowTo サイトです。
 HTML / CSS / JavaScript だけで作っています（ビルド不要・外部サービス不要）。
 
 - ゲーム開発テンプレート：https://github.com/zonarouzo/GameTemplate
@@ -18,7 +18,7 @@ HTML / CSS / JavaScript だけで作っています（ビルド不要・外部�
 | `claude-code.html` | Claude Codeとの連携 | ステップ3 |
 | `initial-setup.html` | ゲームの初期設定 | ステップ4 |
 | `develop.html` | ゲームを作る・遊んで確かめる | ステップ5 |
-| `handoff.html` | 代表者への引き渡し（移管・Organization） | ステップ6 |
+| `handoff.html` | Androidストアリリース対応（けんちくぶ！への引き渡し） | 任意（ステップに数えない） |
 | `prompts.html` | プロンプト集 | 資料 |
 | `faq.html` | よくある質問・トラブル解決 | 資料 |
 | `404.html` | ページが見つからないとき | — |

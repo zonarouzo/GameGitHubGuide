@@ -56,6 +56,15 @@
   var CURRENT_PAGE = PAGES[CURRENT_INDEX];
 
   /* ---------- ヘッダーとメニュー ---------- */
+  // サイト名の「（…）」の部分は、小さく別の行に出す（スマホで変な位置で折り返さないように）
+  function brandName(name) {
+    var i = name.indexOf("（");
+    if (i <= 0) return el("span", { className: "brand-name", text: name });
+    return el("span", { className: "brand-name" }, [
+      document.createTextNode(name.slice(0, i)),
+      el("span", { className: "brand-sub", text: name.slice(i) })
+    ]);
+  }
   function renderHeader() {
     var header = document.getElementById("site-header");
     if (!header) return;
@@ -63,7 +72,7 @@
 
     var brand = el("a", { href: "index.html", className: "brand" }, [
       el("span", { className: "brand-mark", "aria-hidden": "true", text: "✎" }),
-      el("span", { className: "brand-name", text: CONFIG.siteName })
+      brandName(CONFIG.siteName)
     ]);
 
     var toggle = el("button", {

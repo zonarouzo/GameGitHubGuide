@@ -6,7 +6,7 @@
  * 更新方法は README.md を参照してください。
  */
 window.SITE_CONFIG = {
-  siteName: "ClaudeとGitHubではじめるブラウザゲーム開発",
+  siteName: "ClaudeとGitHubではじめるブラウザゲーム開発（けんちくぶ！）",
 
   /* 完了チェックの保存名（同じドメインの小説版サイトと混ざらないようにする） */
   storagePrefix: "game-guide-done:",
@@ -27,7 +27,6 @@ window.SITE_CONFIG = {
     githubDocsPlans: "https://docs.github.com/ja/get-started/learning-about-github/githubs-plans",
     githubDocsPages: "https://docs.github.com/ja/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
     githubDocsTransfer: "https://docs.github.com/ja/repositories/creating-and-managing-repositories/transferring-a-repository",
-    githubDocsOrg: "https://docs.github.com/ja/organizations/collaborating-with-groups-in-organizations/about-organizations",
     claudeCodeWebDocs: "https://code.claude.com/docs/en/web-quickstart",
     capacitor: "https://capacitorjs.com/docs",
     novelGuide: "https://zonarouzo.github.io/NovelGitHubGuide/"
@@ -35,7 +34,8 @@ window.SITE_CONFIG = {
 
   /*
    * ページの順番
-   * step: true のページは「ステップ」として進行状況（○/6）に数えます。
+   * step: true のページは「ステップ」として進行状況（○/5）に数えます。
+   * ストアリリース対応は、必ず行うものではないので、ステップに数えません。
    */
   pages: [
     { file: "index.html",             title: "トップ",                     short: "トップ" },
@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
     { file: "claude-code.html",       title: "Claude Codeとの連携",         short: "Claude Code連携", step: true },
     { file: "initial-setup.html",     title: "ゲームの初期設定",             short: "初期設定",       step: true },
     { file: "develop.html",           title: "ゲームを作る・遊んで確かめる", short: "作る・遊ぶ",     step: true },
-    { file: "handoff.html",           title: "代表者への引き渡し",           short: "引き渡し",       step: true },
+    { file: "handoff.html",           title: "Androidストアリリース対応（けんちくぶ！への引き渡し）", short: "ストアリリース対応" },
     { file: "prompts.html",           title: "プロンプト集",                 short: "プロンプト集" },
     { file: "faq.html",               title: "よくある質問・トラブル解決",   short: "FAQ・トラブル" }
   ],
