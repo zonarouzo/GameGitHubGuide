@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Codeとの連携｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="ブラウザ版Claude Codeを開き、GitHubと連携して、作成したゲーム用リポジトリを操作できるようにする方法を説明します。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>Claude Codeとの連携</h1>
+
+<div class="todo">
+  <p class="todo-title">このページでやること</p>
+  <ol>
+    <li><a href="#open">Claude Code を開く</a></li>
+    <li><a href="#connect">GitHub とつなぎ、Claude にリポジトリの使用を許可する</a></li>
+    <li><a href="#select">ゲームのリポジトリを選び、つながったか確かめる</a></li>
+  </ol>
+  <p class="todo-meta">目安：10分　／　小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
+</div>
+
+<details class="more" id="what">
+  <summary>Claude Code とは？ ふつうのチャットとの違いは？<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <p>Claude Code は、Claude が<strong>ファイルを直接読んだり、書いたり、保存したりできる</strong>作業モードです。ブラウザ版では、クラウド上の作業スペースにあなたのリポジトリを取り込んで作業します。公式ドキュメントでは、Pro・Max などのプランで利用できると案内されています。</p>
+    <div class="table-wrap"><table>
+      <tr><th></th><th>ふつうのチャット</th><th>Claude Code</th></tr>
+      <tr><td>ファイル</td><td>自分で貼り付ける</td><td>Claude が自分で読む</td></tr>
+      <tr><td>書いた文章</td><td>会話に表示されるだけ</td><td>ファイルとして作成・修正</td></tr>
+      <tr><td>保存</td><td>自分でコピーして保存</td><td>Claude が GitHub に保存</td></tr>
+    </table></div>
+    <p>どちらも同じアカウントで使え、利用量はプランの上限を共有します。参考：<a data-link="claudeCodeWebDocs" href="https://code.claude.com/docs/en/web-quickstart">Claude Code 公式ドキュメント（英語）↗</a></p>
+  </div>
+</details>
+
+<h2 id="open">1. Claude Code を開く</h2>
+<ol class="steps">
+  <li><p class="step-main"><a data-link="claudeCode" href="https://claude.ai/code">claude.ai/code ↗</a> を開き、Claude Pro のアカウントでログインします。</p>
+    <figure class="shot" data-shot="claude-code-top" data-caption="Claude Code の最初の画面"></figure></li>
+</ol>
+
+<h2 id="connect">2. GitHub とつなぐ</h2>
+<ol class="steps">
+  <li><p class="step-main">画面の案内に従って GitHub との連携を始め、GitHub の許可のページで許可します。</p>
+    <figure class="shot" data-shot="github-authorize" data-caption="GitHub の許可の画面"></figure>
+    <div class="note"><p>許可が終わると Claude Code の画面に戻ります。</p></div></li>
+  <li><p class="step-main"><a data-link="claudeGithubApp" href="https://github.com/apps/claude/installations/new">許可の設定ページ（GitHub）↗</a>を開き、「Repository access」で次の ①〜③ を操作します。</p>
+    <figure class="shot" data-shot="github-app-install" data-caption="Claude に許可するリポジトリを選ぶ画面（GitHub）の ①〜③ の場所"></figure>
+    <ul class="marks">
+      <li><span class="mark">①</span><span><span class="ui">All repositories</span>（すべてのリポジトリ）か、</span></li>
+      <li><span class="mark">②</span><span><span class="ui">Only select repositories</span>（選んだリポジトリだけ）のどちらかを選びます（<a href="#app-scope">選び方は下</a>）。②の場合は、表示される欄でゲームのリポジトリを選びます。</span></li>
+      <li><span class="mark">③</span><span><span class="ui">Save</span>（保存）を押します。</span></li>
+    </ul>
+    <div class="note">
+      <p>この手続きは「Claude GitHub App のインストール」と呼ばれますが、<strong>パソコンやスマホに何かを入れるものではありません</strong>。GitHub のページ上で設定するだけです。非公開のリポジトリを使うには、この設定が必要です。</p>
+      <p>画像は、すでに設定済みの内容を変更する画面です。はじめて設定する場合は、保存のボタンの名前が違うことがあります（例：<span class="ui">Install</span>）。</p>
+    </div></li>
+</ol>
+
+<h3 id="app-scope">①と②、どちらを選ぶ？</h3>
+<p><strong>GitHub をゲーム作り専用に使うなら ① <span class="ui">All repositories</span>（すべてのリポジトリ）がおすすめです。</strong>今あるリポジトリだけでなく、<strong>これから作るリポジトリにも自動で許可</strong>されるので、ゲームごとにリポジトリを増やしても追加の設定がいりません。</p>
+<div class="note">
+  <p>GitHub でゲーム以外の大事なもの（仕事など）も管理している場合は、② <span class="ui">Only select repositories</span> にして、ゲームのリポジトリだけを選んでください。その場合、ゲームのリポジトリを増やすたびに、この設定ページで追加が必要です。</p>
+  <p>どちらを選んでも、Claude が作業するのは Claude Code の画面で選んだリポジトリだけです。設定はあとから変更できます。</p>
+</div>
+
+<h2 id="select">3. リポジトリを選んで確かめる</h2>
+<ol class="steps">
+  <li><p class="step-main">次の ①② の順に操作して、ゲームのリポジトリを選びます。</p>
+    
+    <ul class="marks">
+      <li><span class="mark">①</span><span>入力欄の下にある、<strong>本のアイコンのボタン</strong>（リポジトリ名）を押します。</span></li>
+      <li><span class="mark">②</span><span>一覧から、<strong>ステップ2で作ったゲームのリポジトリ</strong>を選びます（✓ が付きます）。テンプレート（GameTemplate）は選ばないでください。</span></li>
+    </ul>
+    <div class="note">
+      <p>リポジトリが多いときは、上の検索欄に名前を入力すると見つけやすくなります。画像では、ほかのリポジトリ名をぼかしています。</p>
+      <p>右隣の <code>main</code>（作業の元にする場所）は、そのままで大丈夫です。</p>
+    </div></li>
+  <li id="test"><p class="step-main">次の文章をコピーして送ります。ファイルの一覧が返ってくれば成功です。</p>
+    <div data-prompt="connect-check"></div>
+    <div class="note"><p>一覧に <code>CLAUDE.md</code>、<code>www</code>、<code>docs</code> などが出てくればOKです。ブラウザのタブを閉じても、Claude の作業は止まりません。</p></div></li>
+  <li><p class="step-main">Claude が「初期設定」を提案してきたら、<strong>同じ会話のまま次のページへ</strong>進みます。</p></li>
+</ol>
+
+<h2 id="trouble">うまくいかないとき</h2>
+<details class="faq">
+  <summary>リポジトリの一覧に、自分のゲームのリポジトリが出てこない</summary>
+  <div class="answer">
+    <p>Claude にそのリポジトリの使用が許可されていない可能性があります。</p>
+    <ol>
+      <li><a data-link="claudeGithubApp" href="https://github.com/apps/claude/installations/new">許可の設定ページ（GitHub）↗</a>を開きます。</li>
+      <li>自分のアカウントを選び、ゲームのリポジトリが許可に含まれているか確認します。なければ追加して保存します。</li>
+      <li>Claude Code の画面を再読み込みします。</li>
+    </ol>
+  </div>
+</details>
+<details class="faq">
+  <summary>「Claude Code isn't available on your account」と表示される</summary>
+  <div class="answer">
+    <p>Claude Pro（または上位プラン）のアカウントでログインしているか確認してください。会社などの組織アカウントの場合は、管理者の設定が必要なことがあります。</p>
+  </div>
+</details>
+<details class="faq">
+  <summary>GitHub の許可の画面でエラーになる・途中で止まった</summary>
+  <div class="answer">
+    <p>GitHub に正しいアカウントでログインしているか確認し、Claude Code のページを開き直して連携をやり直してください。</p>
+  </div>
+</details>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<div id="step-done" class="step-done"></div>
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

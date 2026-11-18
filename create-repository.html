@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゲーム用リポジトリの作成と公開｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="テンプレートをコピーして自分のゲーム用リポジトリを作り、GitHub Pagesで公開してスマホで遊べるようにする方法を説明します。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>ゲーム用リポジトリの作成と公開</h1>
+
+<div class="todo">
+  <p class="todo-title">このページでやること</p>
+  <ol>
+    <li><a href="#template">テンプレートをコピーして、ゲーム用のリポジトリを作る</a></li>
+    <li><a href="#pages">GitHub Pages で公開して、スマホで遊べるようにする</a></li>
+  </ol>
+  <p class="todo-meta">目安：5〜10分　／　小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
+</div>
+
+<details class="more" id="what">
+  <summary>リポジトリ・テンプレートとは？<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <p><strong>リポジトリ</strong>は、GitHub の中の「保管箱」です。<strong>1つのリポジトリに、ゲームを1本</strong>入れます。</p>
+    <p><strong>テンプレート</strong>は、ゲーム作りに必要なフォルダや Claude 用のルール（<code>CLAUDE.md</code>）、サンプルゲームが入った「ひな形」です。</p>
+    <div class="table-wrap"><table>
+      <tr><th>フォルダ・ファイル</th><th>入っているもの</th></tr>
+      <tr><td><code>www/</code></td><td>ゲーム本体（Android アプリにするときは、このフォルダが使われます）</td></tr>
+      <tr><td><code>docs/</code></td><td>ゲーム企画書、素材の出典、Android 化メモ</td></tr>
+      <tr><td><code>tools/</code></td><td>動作確認の道具（Claude が使います）</td></tr>
+      <tr><td><code>CLAUDE.md</code></td><td>Claude が守る作業ルール</td></tr>
+    </table></div>
+  </div>
+</details>
+
+<h2 id="template">1. テンプレートからリポジトリを作る</h2>
+<div data-template-link></div>
+<ol class="steps">
+  <li><p class="step-main">GitHub にログインした状態で、上のボタンからテンプレートのページを開きます。</p></li>
+  <li><p class="step-main">右上の緑色の <span class="ui">Use this template</span> を押し、<span class="ui">Create a new repository</span> を選びます。</p></li>
+  <li id="name"><p class="step-main">作成画面が開いたら、次の ①〜③ を順に操作します。</p>
+    <figure class="shot" data-shot="template-create-form" data-caption="作成画面の ①〜③ の場所（画像は小説版の作成時のもの）"></figure>
+    <ul class="marks">
+      <li><span class="mark">①</span><span><strong>Repository name</strong> に名前を入力します（例：<code>star-jump</code>）。</span></li>
+      <li><span class="mark">②</span><span><strong>Choose visibility</strong> は <span class="ui">Public</span>（公開）のままにします。</span></li>
+      <li><span class="mark">③</span><span><span class="ui">Create repository</span> を押します。</span></li>
+    </ul>
+    <div class="note">
+      <p>名前は半角英数字とハイフン（-）で付けます。ゲームの公開アドレスにも使われます（例：<code>https://ユーザー名.github.io/star-jump/</code>）。</p>
+      <p>無料プランで GitHub Pages を使うには、Public にする必要があります。Public のリポジトリは、ゲームのファイルを誰でも見られる状態になります。</p>
+    </div></li>
+</ol>
+
+<h2 id="pages">2. GitHub Pages で公開する</h2>
+<p>作ったリポジトリを公開して、ゲームをブラウザで遊べるようにします。<strong>最初に1回だけ</strong>設定すれば、そのあとは Claude が保存するたびに自動で更新されます。</p>
+<ol class="steps">
+  <li><p class="step-main">作ったリポジトリのページで、上の <span class="ui">Settings</span> を押します。</p>
+    <div class="note"><p>見つからないときは、<span class="ui">…</span> のメニューの中にあります。</p></div></li>
+  <li><p class="step-main">左のメニューの <span class="ui">Pages</span> を押します。</p></li>
+  <li><p class="step-main">「Build and deployment」の「Source」で <span class="ui">Deploy from a branch</span> を選びます。</p></li>
+  <li><p class="step-main">ブランチで <span class="ui">main</span>、フォルダで <span class="ui">/ (root)</span> を選び、<span class="ui">Save</span> を押します。</p>
+    <figure class="shot" data-shot="pages-settings" data-caption="GitHub Pages の設定画面"></figure></li>
+  <li><p class="step-main">数分待ってから、<code>https://ユーザー名.github.io/リポジトリ名/</code> をスマホやパソコンで開きます。サンプルゲーム「ほしあつめ」が遊べれば成功です。</p>
+    <div class="note"><p>反映には数分かかることがあります。設定画面を再読み込みすると、上のほうに公開アドレスが表示されます。手順は <a data-link="githubDocsPages" href="https://docs.github.com/ja/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub公式ドキュメント ↗</a> にもとづいています。</p></div></li>
+</ol>
+<div class="must">
+  <p>公開アドレスをスマホのブックマークやホーム画面に追加しておくと、遊んで確かめるのが楽になります。</p>
+</div>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<div id="step-done" class="step-done"></div>
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHubアカウントの作成｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="GitHubを一度も使ったことがない人向けに、アカウントの作成、メールアドレスの確認、二段階認証の設定までを説明します。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>GitHubアカウントの作成</h1>
+
+<div class="todo">
+  <p class="todo-title">このページでやること</p>
+  <ol>
+    <li><a href="#signup">GitHub のアカウントを作る</a></li>
+    <li><a href="#email">メールアドレスを確認する</a></li>
+    <li><a href="#2fa">二段階認証を設定する</a></li>
+  </ol>
+  <p class="todo-meta">目安：15〜20分　／　小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
+</div>
+
+<details class="more" id="what">
+  <summary>GitHub とは？<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <p>GitHub（ギットハブ）は、ファイルをインターネット上に保管して、<strong>変更の履歴を残しながら管理できる</strong>サービスです。本来はプログラム用ですが、文章の管理にも使えます。</p>
+    <p>このサイトでは、GitHub を<strong>ゲームのファイルをしまう場所</strong>として、そして<strong>作ったゲームを公開する場所</strong>（GitHub Pages）として使います。むずかしい操作は Claude に任せるので、覚えなくて大丈夫です。</p>
+    <p>公式サイト：<a data-link="github" href="https://github.com/">https://github.com/</a></p>
+  </div>
+</details>
+
+<h2 id="signup">1. アカウントを作る</h2>
+<ol class="steps">
+  <li><p class="step-main">パソコンのブラウザで、GitHub の登録ページを開きます。</p>
+    <p><a data-link="githubSignup" href="https://github.com/signup">GitHub の登録ページを開く ↗</a></p>
+    <figure class="shot" data-shot="github-signup" data-caption="GitHub の登録ページ"></figure></li>
+  <li><p class="step-main">メールアドレス・パスワード・ユーザー名・国を入力します。</p>
+    <div class="note">
+      <p>ユーザー名は半角英数字とハイフン（-）で付けます。<strong>ほかの人からも見える</strong>ので、本名でなくペンネームのローマ字などがおすすめです。保管場所のアドレス（例：<code>github.com/ユーザー名/my-novel</code>）にも使われます。</p>
+      <p>パスワードは、ほかのサービスと同じものを使わないでください。入力項目の順番や見た目は変わることがあります。</p>
+    </div></li>
+  <li><p class="step-main">ロボットでないことの確認（パズルなど）が出たら、案内に従って答えます。</p></li>
+  <li><p class="step-main">メールで届いたコードを入力する（またはメール内のリンクを開く）と、登録が完了します。</p>
+    <figure class="shot" data-shot="github-signup-code" data-caption="メールで届いた確認コードを入力する画面"></figure>
+    <div class="note"><p>利用目的などの質問や有料プランの案内が出たら、スキップして大丈夫です。<strong>無料（Free）のままで使えます。</strong></p></div></li>
+</ol>
+
+<h2 id="email">2. メールアドレスを確認する</h2>
+<p>登録時のメールで確認が終わっていれば、この手順は不要です。確認メールを見逃した場合だけ、次の操作で再送します。</p>
+<ol class="steps">
+  <li><p class="step-main"><a data-link="githubEmailSettings" href="https://github.com/settings/emails">メール設定のページ ↗</a>を開きます。</p>
+    <div class="note"><p>画面右上の自分のアイコン → <span class="ui">Settings</span> → 左メニューの <span class="ui">Emails</span> でも開けます。</p></div></li>
+  <li><p class="step-main"><span class="ui">Resend verification email</span> を押し、届いたメールのリンクを開きます。</p>
+    <figure class="shot" data-shot="github-email-verify" data-caption="メール設定の画面（確認メールの再送）"></figure>
+    <div class="note"><p>メールが届かないときは、迷惑メールフォルダを確認してください。</p></div></li>
+</ol>
+
+<h2 id="2fa">3. 二段階認証を設定する</h2>
+<p>パスワードに加えて、<strong>スマホのアプリに表示される数字</strong>でも本人確認をする仕組みです。大切なゲームのデータを守るために設定してください。</p>
+<ol class="steps">
+  <li><p class="step-main">スマホに「認証アプリ」を入れます。</p>
+    <div class="note"><p>アプリストアで「認証アプリ」「Authenticator」と検索すると見つかります。GitHub は特定のアプリを指定していません。</p></div></li>
+  <li><p class="step-main"><a data-link="githubSecuritySettings" href="https://github.com/settings/security">パスワードと認証の設定ページ ↗</a>を開き、<span class="ui">Enable two-factor authentication</span> を押します。</p>
+    <figure class="shot" data-shot="github-2fa-enable" data-caption="二段階認証を有効にするボタン"></figure>
+    <div class="note"><p>画面右上の自分のアイコン → <span class="ui">Settings</span> → 左メニューの <span class="ui">Password and authentication</span> でも開けます。</p></div></li>
+  <li><p class="step-main">画面の QRコードを認証アプリで読み取り、アプリに出た<strong>6けたの数字</strong>を入力します。</p></li>
+  <li><p class="step-main"><strong>リカバリーコード</strong>を <span class="ui">Download</span> で保存し、<span class="ui">I have saved my recovery codes</span> を押します。</p></li>
+</ol>
+<div class="must">
+  <p>リカバリーコードは、なくさない場所に必ず保管してください。</p>
+  <p class="small">スマホをなくしたり機種変更したりしたとき、これがないとアカウントに入れなくなるおそれがあります。</p>
+</div>
+
+<details class="more">
+  <summary>二段階認証について、もう少しくわしく<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <p>GitHub は、アカウントの使い方によっては二段階認証の設定を必須にしています。対象になった場合は画面やメールで案内されます。</p>
+    <p>SMS（ショートメッセージ）で受け取る方法もありますが、GitHub は認証アプリの利用を推奨しています。詳しくは <a data-link="githubDocs2fa" href="https://docs.github.com/ja/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication">GitHub公式ドキュメント ↗</a> をご覧ください。</p>
+  </div>
+</details>
+
+<details class="more" id="free">
+  <summary>無料プランでできること<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <p>個人向けの無料プラン（GitHub Free）では、<strong>非公開（Private）の保管場所を数の制限なく作れます</strong>。ゲーム作りと、公開（Public）リポジトリでの GitHub Pages の利用は、無料プランでできます。一部の高度な機能は有料ですが、このサイトの手順では使いません。</p>
+    <p>プランの内容は変わることがあります。<a data-link="githubDocsPlans" href="https://docs.github.com/ja/get-started/learning-about-github/githubs-plans">GitHub公式ドキュメント（GitHubのプラン）↗</a></p>
+  </div>
+</details>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<div id="step-done" class="step-done"></div>
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

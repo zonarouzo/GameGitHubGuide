@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>代表者への引き渡し｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="ゲームがある程度できたら、チームの代表者のGitHubアカウントやOrganizationにリポジトリを移管して、Androidアプリ化してもらう方法を説明します。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>代表者への引き渡し</h1>
+
+<div class="todo">
+  <p class="todo-title">このページでやること</p>
+  <ol>
+    <li><a href="#check">引き渡しの前に、Claude にチェックしてもらう</a></li>
+    <li><a href="#transfer">リポジトリを代表者に移管する（引っ越し）</a></li>
+    <li><a href="#after">移管のあとの確認</a></li>
+  </ol>
+  <p class="todo-meta">ゲームが「ある程度できた」とチームで決めたら進めます。小さい文字の「補足」と、▶ で開く説明は読み飛ばしてもOKです。</p>
+</div>
+
+<h2 id="check">1. 引き渡しの前のチェック</h2>
+<p>Android アプリにする前に、問題がないか Claude に確認してもらいます。</p>
+<div data-prompt="app-check"></div>
+<details class="more"><summary>素材の出典と企画書も確認する</summary><div class="more-body">
+  <div data-prompt="credits-check"></div>
+  <div data-prompt="plan-update"></div>
+</div></details>
+
+<h2 id="transfer">2. リポジトリを移管する</h2>
+<p>GitHub の「<strong>リポジトリの移管（Transfer）</strong>」を使うと、変更の履歴ごと、リポジトリを代表者のアカウントに引っ越しできます。</p>
+<ol class="steps">
+  <li><p class="step-main">ゲームのリポジトリの <span class="ui">Settings</span> を開き、いちばん下の「Danger Zone」までスクロールします。</p></li>
+  <li><p class="step-main"><span class="ui">Transfer</span> を押し、画面の案内に従って、移管先（代表者のユーザー名、またはチームの Organization 名）などを入力して確定します。</p>
+    <div class="note"><p>確認のため、リポジトリ名の入力を求められることがあります。画面の表記は変わることがあります。手順は <a data-link="githubDocsTransfer" href="https://docs.github.com/ja/repositories/creating-and-managing-repositories/transferring-a-repository">GitHub公式ドキュメント ↗</a> にもとづいています。</p></div></li>
+  <li><p class="step-main">代表者の個人アカウントに移す場合は、代表者に届く確認メールで、<strong>1日以内に承認</strong>してもらいます。</p></li>
+</ol>
+<div class="must">
+  <p>移管先に同じ名前のリポジトリがあると、移管できません。</p>
+  <p class="small">名前がかぶる場合は、先にどちらかのリポジトリ名を変えておきます。Organization に移す場合は、その Organization でリポジトリを作れる権限が必要です。</p>
+</div>
+
+<h2 id="after">3. 移管のあとの確認</h2>
+<ul>
+  <li><strong>あなたは、そのまま共同作業者（Collaborator）として残ります。</strong>引き続き、ゲームのファイルを見たり変更したりできます。</li>
+  <li><strong>公開アドレスは引き継がれません。</strong>代表者側で GitHub Pages を設定し直すと、新しいアドレス（<code>https://代表者のユーザー名.github.io/リポジトリ名/</code>）で遊べるようになります。</li>
+  <li><strong>移管後も Claude Code で作業を続けるには</strong>、代表者（Organization の場合はその管理者）に、Claude の許可の設定（<a href="claude-code.html#connect">Claude GitHub App</a>）にそのリポジトリを含めてもらいます。</li>
+</ul>
+<div class="note"><p>Android アプリ化の手順は、ゲームのリポジトリの <code>docs/android.md</code>（代表者向けメモ）にまとめています。詳しくは <a data-link="capacitor" href="https://capacitorjs.com/docs">Capacitor 公式ドキュメント（英語）↗</a> を参照してください。</p></div>
+
+<h2 id="org">チームで Organization を使う（これからの選択肢）</h2>
+<p>GitHub の <strong>Organization</strong> は、チームでリポジトリを共有するためのアカウントです。チームの Organization を作っておくと、<strong>メンバーが最初から Organization の中にゲームのリポジトリを作れる</strong>ので、移管（引っ越し）が不要になります。</p>
+<details class="more">
+  <summary>Organization を使う場合に知っておくこと<span class="more-tag">代表者向け</span></summary>
+  <div class="more-body">
+    <ul>
+      <li>Organization は代表者が作り、メンバーを招待します。無料のプランもあります（<a data-link="githubDocsOrg" href="https://docs.github.com/ja/organizations/collaborating-with-groups-in-organizations/about-organizations">GitHub公式ドキュメント ↗</a>）。</li>
+      <li>メンバーが Organization の中にリポジトリを作れるよう、Organization の設定を確認しておきます。</li>
+      <li>Claude Code で作業するには、Organization の管理者が Claude GitHub App を Organization に許可します（メンバーが申請し、管理者が承認する形になることもあります）。</li>
+      <li>GitHub Pages を <strong>非公開（Private）リポジトリ</strong>で使いたい場合は、Organization 側の有料プランが必要です。代表者の個人アカウントの有料プランは、Organization には適用されません。公開（Public）リポジトリなら無料で使えます。</li>
+      <li>メンバーは、テンプレートの <span class="ui">Use this template</span> の作成画面で、<strong>Owner</strong>（持ち主）を Organization にしてリポジトリを作ります。</li>
+    </ul>
+  </div>
+</details>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<div id="step-done" class="step-done"></div>
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

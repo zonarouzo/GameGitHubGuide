@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゲームを作る・遊んで確かめる｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="機能の追加、調整、見た目や音の変更、不具合の伝え方、遊んで確かめる方法、元に戻す方法を、プロンプト例つきで説明します。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>ゲームを作る・遊んで確かめる</h1>
+
+<div class="todo">
+  <p class="todo-title">いつもの流れ</p>
+  <ol>
+    <li>Claude Code を開いて、ゲームのリポジトリを選ぶ</li>
+    <li>やりたいことを日本語で頼む（下のプロンプト例を使えます）</li>
+    <li>報告の「遊んで確かめる」のアドレスで遊ぶ → 気になったことをまた頼む</li>
+  </ol>
+  <p class="todo-meta">このページは、必要なところだけ読めばOKです。小さい文字の「補足」と、▶ で開く説明は読み飛ばしても大丈夫です。</p>
+</div>
+
+<div class="must">
+  <p>1回の依頼では、1つのことだけ頼むのがコツです。</p>
+  <p class="small">いくつもまとめて頼むと、どの変更で何が変わったのかわかりにくくなります。「ジャンプを追加」→ 遊ぶ →「ジャンプを高く」のように、少しずつ進めましょう。</p>
+</div>
+
+<div class="note"><p>プロンプトの【 】の部分は、自分の内容に書き換えて使ってください。ふだんの言葉で頼んでも大丈夫です。保存は Claude が自動で行います。</p></div>
+
+<h2 id="make">機能を追加する</h2>
+<div data-prompt="add-feature"></div>
+<details class="more"><summary>画面を追加したいとき・アイデアを出してもらいたいとき</summary><div class="more-body">
+  <div data-prompt="add-screen"></div>
+  <div data-prompt="ideas"></div>
+</div></details>
+
+<h2 id="tune">調整する</h2>
+<div data-prompt="tune-difficulty"></div>
+<details class="more"><summary>数値を変えたいとき・操作の手ざわりを良くしたいとき</summary><div class="more-body">
+  <div data-prompt="tune-number"></div>
+  <div data-prompt="tune-feel"></div>
+</div></details>
+
+<h2 id="look">見た目・音を変える</h2>
+<div data-prompt="look-change"></div>
+<details class="more"><summary>自分で用意した画像を使いたいとき・効果音を付けたいとき</summary><div class="more-body">
+  <p>画像は、Claude Code の入力欄に<strong>添付</strong>して頼めます。</p>
+  <div data-prompt="image-add"></div>
+  <div data-prompt="sound-add"></div>
+  <p>人が作った素材（フリー素材など）を使うときは、利用条件（商用利用・アプリでの配布ができるか）を必ず確認してください。Claude は、出典を素材の記録（<code>docs/credits.md</code>）に残します。</p>
+</div></details>
+
+<h2 id="play">遊んで確かめる</h2>
+<ol class="steps">
+  <li><p class="step-main">Claude の報告の「遊んで確かめる」のアドレスを、スマホやパソコンで開きます。</p>
+    <div class="note"><p>保存から反映まで数分かかることがあります。前のままのときは、少し待ってからページを再読み込みしてください。</p></div></li>
+  <li><p class="step-main">気になったことを、そのまま Claude に伝えます。</p></li>
+</ol>
+
+<h2 id="bug">不具合を直してもらう</h2>
+<p>「何が起きたか」「どの端末で」「どうやったら起きるか」を伝えると、直してもらいやすくなります。</p>
+<div data-prompt="bug-report"></div>
+<details class="more"><summary>全体をチェックしてもらいたいとき</summary><div class="more-body">
+  <div data-prompt="bug-check"></div>
+</div></details>
+
+<h2 id="plan">企画書を整える</h2>
+<p>Claude は、ゲーム企画書（<code>docs/design.md</code>）を読んでから作業します。決まったことがたまってきたら、企画書を今のゲームに合わせてもらいましょう。</p>
+<div data-prompt="plan-update"></div>
+
+<h2 id="undo">元に戻す</h2>
+<div data-prompt="undo"></div>
+<details class="more"><summary>もっと前の状態に戻したいとき</summary><div class="more-body">
+  <div data-prompt="restore"></div>
+  <p>GitHub でリポジトリを開き、ファイル一覧の上にある時計のマーク（変更の履歴）からも、いつ何を変えたかを確認できます。</p>
+</div></details>
+
+<h2 id="save">保存について</h2>
+<p><strong>Claude が作業のたびに、自動で main（メインの保存場所）に反映します。</strong>報告の「保存の状況」に「main に反映しました」とあれば完了です。</p>
+<details class="more" id="save-failed">
+  <summary>「main に反映できませんでした」と報告されたとき</summary>
+  <div class="more-body">
+    <p>作業内容は「作業用の保存場所（ブランチ）」には保存されています。次の手順で、手動で main に反映できます。</p>
+    <ol>
+      <li>Claude Code の画面で <span class="ui">Create PR</span> を押します。</li>
+      <li>表示されたリンクから GitHub のページを開き、<span class="ui">Merge pull request</span> を押します。</li>
+      <li><span class="ui">Confirm merge</span> を押します。</li>
+    </ol>
+    <div data-prompt="save-status"></div>
+  </div>
+</details>
+<p class="small">ほかの指示の例は <a href="prompts.html">プロンプト集</a> にまとめています。</p>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<div id="step-done" class="step-done"></div>
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>よくある質問・トラブル解決｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="公開範囲、GitHub Pagesが表示されない、スマホで音が出ない、素材の著作権、Androidアプリ化など、困りやすい内容をまとめました。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>よくある質問・トラブル解決</h1>
+<p class="lead">困ったときは、まずここを確認してください。質問をクリックすると答えが開きます。</p>
+
+<h2 id="publish">公開・遊ぶとき</h2>
+<details class="faq" id="public">
+  <summary>リポジトリを Public（公開）にして大丈夫？</summary>
+  <div class="answer">
+    <p>Public にすると、ゲームのファイル（プログラムや画像）を誰でも見られる状態になります。無料プランで GitHub Pages を使うには Public にする必要があります。</p>
+    <p>見られて困る情報（本名、パスワード、未発表の秘密の設定など）は、ゲームのファイルや企画書に書かないようにしましょう。</p>
+  </div>
+</details>
+<details class="faq" id="pages-404">
+  <summary>公開アドレスを開いても「404」と表示される</summary>
+  <div class="answer">
+    <ol>
+      <li><a href="create-repository.html#pages">GitHub Pages の設定</a>（Deploy from a branch・main・/ (root)）ができているか確認します。</li>
+      <li>設定してから数分は表示されないことがあります。少し待ってから再読み込みします。</li>
+      <li>アドレスのユーザー名・リポジトリ名が合っているか確認します。リポジトリの <span class="ui">Settings</span> → <span class="ui">Pages</span> の上のほうに、正しいアドレスが表示されます。</li>
+    </ol>
+  </div>
+</details>
+<details class="faq" id="old-version">
+  <summary>Claude が直したのに、遊ぶと前のままになっている</summary>
+  <div class="answer">
+    <p>反映まで数分かかることがあります。少し待ってから、ページを再読み込みしてください。それでも変わらない場合は、Claude の報告で「main に反映しました」となっているか確認してください。</p>
+    <div data-prompt="save-status"></div>
+  </div>
+</details>
+<details class="faq" id="sound">
+  <summary>スマホで音が出ない</summary>
+  <div class="answer">
+    <p>スマホのブラウザは、画面を一度タップするまで音を鳴らせない決まりがあります。ゲームを始めるときに一度タップしてから確認してください。スマホがマナーモードになっていないかも確認しましょう。それでも鳴らない場合は、<a href="develop.html#bug">不具合として Claude に伝えて</a>ください。</p>
+  </div>
+</details>
+
+<h2 id="claude">Claude の使い方</h2>
+<details class="faq" id="limit">
+  <summary>Claude の利用制限に達したら？</summary>
+  <div class="answer">
+    <p>Claude Code の利用量は、ふつうの Claude チャットと同じプランの利用上限に含まれます。上限に達したら、画面に表示される再開時刻まで待ってください。それまでに保存されたゲームは GitHub に残っています。大きな機能を一度に頼むより、少しずつ頼むほうが利用量を抑えられます。</p>
+  </div>
+</details>
+<details class="faq" id="new-session">
+  <summary>Claude との会話を新しくしても大丈夫？</summary>
+  <div class="answer">
+    <p>大丈夫です。ゲームは GitHub に保存されていて、Claude は作業のたびに最新の状態を取り込みます。会話の内容は引き継がれないので、新しい会話の最初に次のように頼むと、今の状態を確認できます。</p>
+    <div data-prompt="new-session"></div>
+  </div>
+</details>
+<details class="faq" id="two-games">
+  <summary>ゲームを2本目、3本目と作りたい</summary>
+  <div class="answer">
+    <p>ゲームごとに、<a href="create-repository.html">テンプレートから新しいリポジトリを作ります</a>（1リポジトリ＝1ゲーム）。Claude への許可を「すべてのリポジトリ」にしていれば、新しいリポジトリもすぐ Claude Code で選べます。</p>
+  </div>
+</details>
+<details class="faq" id="other-pc">
+  <summary>別のパソコンやスマホでも作業できる？</summary>
+  <div class="answer">
+    <p>できます。GitHub と Claude にログインすれば、どのパソコンでも同じように作業できます。Anthropic の案内では、Claude のスマホアプリからも Claude Code の作業を始めたり、様子を確認したりできるとされています。</p>
+  </div>
+</details>
+
+<h2 id="material">素材・アプリ化</h2>
+<details class="faq" id="copyright">
+  <summary>ネットで見つけた画像や音を使っていい？</summary>
+  <div class="answer">
+    <p>利用条件を確認して、<strong>アプリとして配布（商用を含む）できるもの</strong>だけを使ってください。条件がわからないものや、既存のゲーム・アニメのキャラクターなどは使えません。使った素材の出典は、Claude が <code>docs/credits.md</code> に記録します。</p>
+  </div>
+</details>
+<details class="faq" id="android">
+  <summary>自分で Android アプリにできる？</summary>
+  <div class="answer">
+    <p>Android アプリにするには、パソコンに開発ツール（Android Studio など）を入れる作業が必要です。このサイトでは、<strong>チームの代表者がまとめてアプリ化する</strong>流れにしています。手順は、ゲームのリポジトリの <code>docs/android.md</code> にまとめています。</p>
+  </div>
+</details>
+<details class="faq" id="iphone">
+  <summary>iPhone のアプリにもできる？</summary>
+  <div class="answer">
+    <p>このテンプレートは Android アプリ化を想定しています。iPhone で遊ぶだけなら、公開アドレスを Safari で開けば遊べます。</p>
+  </div>
+</details>
+
+<h2 id="words">用語</h2>
+<details class="faq" id="branch">
+  <summary>PR（プルリクエスト）やブランチとは何？</summary>
+  <div class="answer">
+    <p><strong>ブランチ</strong>は、リポジトリの中の「作業用の保存場所」です。メインの保存場所は <code>main</code> です。<strong>PR（プルリクエスト）</strong>は、作業用の保存場所の変更を main に取り込むための申請です。</p>
+    <p>このテンプレートでは、Claude が作業内容を直接 main に反映するので、ふだんは意識する必要はありません。反映できなかったときだけ、<a href="develop.html#save-failed">手動で反映する方法</a>を使います。</p>
+  </div>
+</details>
+<details class="faq">
+  <summary>CLAUDE.md とは？</summary>
+  <div class="answer">
+    <p>Claude が作業するときに守るルールを書いたファイルです。アプリ化しやすい作り方や、保存の前の動作確認などが書かれています。ふだんは触る必要はありません。</p>
+  </div>
+</details>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

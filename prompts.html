@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プロンプト集｜ClaudeとGitHubではじめるブラウザゲーム開発</title>
+<meta name="description" content="機能の追加、調整、見た目・音、不具合、企画、アプリ化の準備など、Claudeによく使う指示をワンクリックでコピーできます。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/prompts.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header id="site-header" class="site-header">
+  <div class="header-inner"><a class="brand" href="index.html">ClaudeとGitHubではじめるブラウザゲーム開発</a></div>
+</header>
+
+<main id="main">
+<div id="progress" class="progress" aria-live="polite"></div>
+<noscript><p class="callout callout-warn">このサイトのメニューやコピーボタンを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+<!-- ===== ここから本文 ===== -->
+<article>
+<h1>プロンプト集</h1>
+<p class="lead"><span class="ui">コピー</span> を押して、Claude Code の入力欄に貼り付けて使います。<strong>【 】の部分は自分の内容に書き換えてください。</strong></p>
+
+<details class="more">
+  <summary>うまく頼むコツ<span class="more-tag">知っておくと安心</span></summary>
+  <div class="more-body">
+    <ul>
+      <li>1回の依頼では、1つのことだけ頼みます。</li>
+      <li>「もっと良くして」より、「ジャンプを今の1.5倍の高さに」のように具体的に伝えます。</li>
+      <li>動きは、たとえで伝えるとわかりやすくなります（例：「ボールが弾むみたいに」）。</li>
+      <li>意見だけほしいときは「ファイルは変更しないでください」と書き添えます。</li>
+      <li>このとおりの文章でなくても、ふだんの言葉で頼めば Claude は理解します。</li>
+    </ul>
+  </div>
+</details>
+
+<div id="prompt-catalog">
+  <p class="small">プロンプトを読み込んでいます…</p>
+</div>
+</article>
+<!-- ===== ここまで本文 ===== -->
+
+<nav id="pager" class="pager" aria-label="前後のページ"></nav>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>
