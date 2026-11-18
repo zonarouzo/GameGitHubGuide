@@ -63,33 +63,29 @@
 </details>
 
 <h2 id="migrate">B. Claude のチャットで途中まで作ったゲームを移す</h2>
-<p>普通の Claude のチャット（Claude Code ではないほう）で作ったゲームを、このリポジトリに移します。移したあとは、Claude Code で続きを作れます。</p>
+<p>普通の Claude のチャット（Claude Code ではないほう）で作ったゲームを、<strong>HTML ファイルとしてダウンロードして、Claude Code に渡します</strong>。移したあとは、Claude Code で続きを作れます。</p>
 <ol class="steps">
-  <li><p class="step-main"><strong>普通の Claude のチャット</strong>で、ゲームを作った会話を開き、次の文章を送ります。</p>
-    <div data-prompt="chat-export"></div>
-    <div class="note"><p>ゲームを、移しやすい「1つのファイル」の形で書き出してもらうためのお願いです。</p></div></li>
-  <li><p class="step-main">表示されたコードを、<strong>最初から最後まで全部</strong>コピーします。</p>
-    <div class="note"><p>コードの枠にあるコピーのボタンを使うと確実です。コードが途中で切れている場合は、チャットで「続きを出してください」と頼み、全部そろえてからコピーします。</p></div></li>
-  <li><p class="step-main"><strong>Claude Code</strong> に戻り、次の文章の【 】にコードを貼り付けて送ります。</p>
-    <div data-prompt="import-game"></div>
-    <div class="note"><p>Claude Code が初期設定の始め方を聞いてきた場合は、「B」と答えてからこの文章を送っても大丈夫です。</p></div></li>
+  <li><p class="step-main">普通の Claude のチャットで、ゲームを作った会話を開き、① ゲームのファイル（「コード・HTML」と書かれた枠）を押します。</p>
+    <figure class="shot" data-shot="chat-html-card" data-caption="① チャットの中のゲームのファイル（スマホのアプリの画面）"></figure></li>
+  <li><p class="step-main">② 右上の <span class="ui">︙</span> を押し、③ <span class="ui">ダウンロード</span> を押します。</p>
+    <figure class="shot" data-shot="chat-html-download" data-caption="② メニューを開き、③ ダウンロードを選ぶ"></figure>
+    <div class="note"><p>パソコンのブラウザなど、使っている画面によってボタンの場所が違うことがあります。ファイル名の最後が <code>.html</code> になっていれば大丈夫です。</p></div></li>
+  <li><p class="step-main"><strong>Claude Code</strong> に戻り、入力欄の <span class="ui">＋</span> から、ダウンロードしたファイルを添付して、次の文章を送ります。</p>
+    <div data-prompt="import-game-attach"></div>
+    <div class="note"><p>Claude Code が初期設定の始め方を聞いてきた場合は、「B」と答えてから添付しても大丈夫です。</p></div></li>
   <li><p class="step-main">Claude が「アプリにしやすい形にするための直し」を説明してきたら、内容を見て「<strong>進めてOKです</strong>」と答えます。</p>
     <div class="note"><p>ネット上の部品を読み込んでいる場合や、React などの特別な仕組みで作られている場合は、普通の形に書き直す必要があります。書き直しが大きいときは、作業の前に Claude が説明してくれます。</p></div></li>
   <li><p class="step-main">報告に書かれた「<strong>元のゲームから変わった点</strong>」を確認し、遊んで確かめます。</p>
-    <div class="note"><p>元のコードの控えは <code>import/</code> フォルダに保存されます。うまく動かないところがあれば、「元のゲームでは〇〇だったのに、△△になっている」と伝えると直してもらえます。</p></div></li>
+    <div class="note"><p>元のファイルの控えは <code>import/</code> フォルダに保存されます。うまく動かないところがあれば、「元のゲームでは〇〇だったのに、△△になっている」と伝えると直してもらえます。</p></div></li>
 </ol>
 
 <details class="more">
-  <summary>コードが長すぎて、貼り付けられないとき（ファイルをアップロード）</summary>
+  <summary>チャットにゲームのファイルが見当たらないとき・ダウンロードできないとき</summary>
   <div class="more-body">
-    <ol>
-      <li>コードを、拡張子が <code>.html</code> のファイルとしてパソコンに保存します（チャットのゲームの画面からダウンロードできる場合は、それを使います）。</li>
-      <li>GitHub でゲームのリポジトリを開き、<span class="ui">Add file</span> → <span class="ui">Upload files</span> を選んで、そのファイルを入れます。</li>
-      <li>画面下の <span class="ui">Commit changes</span> を押して保存します。</li>
-      <li>Claude Code で、次の文章の【 】にファイル名を書いて送ります。</li>
-    </ol>
-    <div data-prompt="import-game-upload"></div>
-    <p>ボタンの表記は変わることがあります。</p>
+    <p>普通の Claude のチャットで次の文章を送ると、ゲームを1つの HTML ファイルにまとめてもらえます。そのあと、上の手順でダウンロードします。</p>
+    <div data-prompt="chat-export"></div>
+    <p>ファイルを添付できない場合は、表示されたコードを全部コピーして、次の文章の【 】に貼り付けて送る方法もあります。コードが途中で切れていないか注意してください。</p>
+    <div data-prompt="import-game"></div>
   </div>
 </details>
 

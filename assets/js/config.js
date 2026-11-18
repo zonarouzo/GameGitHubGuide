@@ -55,7 +55,9 @@ window.SITE_CONFIG = {
    */
   screenshots: {
     "template-create-form": "template-create-form.png",
-    "github-app-install": "github-app-install.png"
+    "github-app-install": "github-app-install.png",
+    "chat-html-card": "chat-html-card.png",
+    "chat-html-download": "chat-html-download.png"
   },
 
   /* 画像がまだない枠（画像準備中）を表示するかどうか */
