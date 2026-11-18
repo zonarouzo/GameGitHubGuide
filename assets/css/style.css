@@ -429,3 +429,7 @@ details.more > summary .more-tag {
 /* 見出しの小さい副題（例：（けんちくぶ！）） */
 h1 small { display: inline-block; font-size: 0.6em; color: var(--text-sub); font-weight: 700; }
 .brand-sub { display: block; font-size: 0.78em; color: var(--text-sub); }
+
+/* カードを横いっぱいに（カードの数が奇数のとき用） */
+.card-wide { grid-column: 1 / -1; }
+.card p.small { margin-top: 0.5em; font-size: 0.82rem; }
